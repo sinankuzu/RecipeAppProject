@@ -1,25 +1,28 @@
-import React from 'react'
-import {  RecipeCards, RecipeHeader, RecipeImage } from './HomeStyles'
+import React from "react";
+import { Button, RecipeCards, RecipeHeader, RecipeImage } from "./HomeStyles";
+import { useNavigate } from "react-router-dom";
 // import {useNavigate} from "react-router-dom"
-const RecipeCard = ({recipe1, yemekler}) => {
+const RecipeCard = ({ recipe1, yemekler }) => {
+  let navigate = useNavigate();
 
-
+  const detayaGit = () => {
+    navigate("/details", { state: { recipe1 } });
+  };
 
   return (
-    <RecipeCards>
+    <div>
       {yemekler.map((element) => {
-        const { label, image } = element;
+        const { label, image } = element.recipe;
         return (
-          <div>
+          <RecipeCards>
             <RecipeHeader>{label}</RecipeHeader>
             <RecipeImage src={image} />
-            {/* <Button onClick={detayaGit}>Details</Button> */}
-          </div>
+            <Button onClick={detayaGit}>Details</Button>
+          </RecipeCards>
         );
       })}
-      
-       </RecipeCards>
+    </div>
   );
-}
+};
 
-export default RecipeCard
+export default RecipeCard;
