@@ -26,10 +26,10 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar />
+      
       <Header query={query} setQuery={setQuery} getData={getData} />
       <RecipeCard yemekler={yemekler} />
-      <Footer />
+      
     </div>
   );
 };
