@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const RecipeCard = ({ recipe1, yemekler }) => {
   let navigate = useNavigate();
 
-  const detayaGit = () => {
-    navigate("/details", { state: { recipe1 } });
-  };
+  // const detayaGit = () => {
+  //   navigate("/details", { state: { recipe1 } });
+  // };
 
   return (
     <div>
@@ -17,7 +17,7 @@ const RecipeCard = ({ recipe1, yemekler }) => {
           <RecipeCards>
             <RecipeHeader>{label}</RecipeHeader>
             <RecipeImage src={image} />
-            <Button onClick={detayaGit}>Details</Button>
+            <Button onClick={() => navigate(`/details/${label}`)}>Details</Button>
           </RecipeCards>
         );
       })}

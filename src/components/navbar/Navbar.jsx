@@ -8,7 +8,7 @@ const Navbar = () => {
   <Nav>
     <Logo>{clarus}</Logo>
     <Menu>
-      <MenuLink>About</MenuLink>
+      <MenuLink onClick={}>About</MenuLink>
       <MenuLink>Github</MenuLink>
       <MenuLink>Logout</MenuLink>
     </Menu>
