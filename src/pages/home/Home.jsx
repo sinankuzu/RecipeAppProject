@@ -4,9 +4,9 @@ import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
 import axios from "axios";
 import RecipeCard from "./RecipeCard";
-import home from "../../assets/home.svg"
-import {Route, Routes} from "react-router-dom";
-import Login from "../login/Login"
+import home from "../../assets/home.svg";
+import { Route, Routes } from "react-router-dom";
+import Login from "../login/Login";
 
 const Home = () => {
   const [yemekler, setYemekler] = useState([]);
@@ -23,11 +23,9 @@ const Home = () => {
     axios.get(url).then((res) => setYemekler(res.data.hits));
 
     console.log(yemekler);
-    
   };
   console.log(query);
   console.log(inputValue);
-
 
   return (
     <div>
@@ -41,7 +39,6 @@ const Home = () => {
       {(yemekler.length >= 1 && (
         <RecipeCard yemekler={yemekler} inputValue={inputValue} />
       )) || <img src={home} alt="" />}
-      
     </div>
   );
 };

@@ -15,7 +15,7 @@ const Navbar = () => {
           Github
         </a>
 
-        <MenuLink to="/login">Logout</MenuLink>
+        <MenuLink to="/">Logout</MenuLink>
       </Menu>
     </Nav>
   );

@@ -13,23 +13,20 @@ import Details from "./pages/details/Details";
 
 
 const App = () => {
+ 
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route exact path="/home" element={<Home />} />
-        <Route path="/details/:label" element={<Details />} />
-        <Route path="/login"  element={<Login />}/>
-        <Route path="about" element={ <About />}/>
-      </Routes>
-      
-
-      
-
-     
-
-      <Footer/>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/details/:label" element={<Details />} />
+          <Route exact path="/" element={<Login />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 };
 
