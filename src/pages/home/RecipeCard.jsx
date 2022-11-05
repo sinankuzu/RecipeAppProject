@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import { Button, MainContainer, RecipeCards, RecipeHeader, RecipeImage } from "./HomeStyles";
 import { useNavigate } from "react-router-dom";
+import Details from "../details/Details";
+import "./RecipeSSS.css"
 
-// import {useNavigate} from "react-router-dom"
-const RecipeCard = ({ recipe1, yemekler,inputValue }) => {
+
+const RecipeCard = ({ yemekler,inputValue }) => {
   let navigate = useNavigate();
   
   // const detayaGit = () => {
@@ -16,19 +18,16 @@ const RecipeCard = ({ recipe1, yemekler,inputValue }) => {
         .filter((filtered) =>
           filtered.recipe.label.toLowerCase().includes(inputValue)
         )
-        .map((element) => {
+        .map((element,index) => {
           
              const { label, image } = element.recipe; 
           
           return (
-            <RecipeCards key={label}>
+            <RecipeCards key={index}>
               <RecipeHeader>{label}</RecipeHeader>
               <RecipeImage src={image} />
-              <Button
-                onClick={() => navigate(`/details/${element.recipe.label}`)}
-              >
-                Details
-              </Button>
+              <Button onClick={() => navigate("/details")}>Details</Button>
+              <div className="gizlen">{<Details yemekler={yemekler} />}</div>
             </RecipeCards>
           );
         })}

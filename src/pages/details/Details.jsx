@@ -1,8 +1,29 @@
 import React from 'react'
-
-const Details = () => {
+import { DetailContainer, DetailPart, HeaderContainer, ImgContainer, IngredContainer, OtherPart } from './DetailsStyles'
+import { useLocation } from 'react-router-dom'
+const Details = ({yemekler}) => {
+  console.log(yemekler)
+  // const location = useLocation();
+ 
+  // const recipeAr = location.state.yemekler
   return (
-    <div>Details</div>
+    <DetailContainer>
+    
+      <HeaderContainer>
+
+      </HeaderContainer>
+
+      <DetailPart>
+
+      <OtherPart></OtherPart>
+
+      <ImgContainer></ImgContainer>
+
+      <IngredContainer>assa</IngredContainer>
+
+      </DetailPart>
+
+    </DetailContainer>
   )
 }
 
