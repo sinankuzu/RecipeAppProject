@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormContainer, HeaderContainer, MainHeader,FoodInput, Button, Select } from './HeaderStyles'
 
-const Header = ({setQuery, getData}) => {
+const Header = ({setQuery, getData, setInputValue}) => {
  
   
   
@@ -10,7 +10,7 @@ const Header = ({setQuery, getData}) => {
       <HeaderContainer>
         <MainHeader> FOOD APP</MainHeader>
         <FormContainer>
-          <FoodInput type="text" />
+          <FoodInput type="text" onChange={(e)=>setInputValue(e.target.value)} />
           <Button onClick={getData}>Search</Button>
           <Select onChange={(e)=>setQuery(e.target.value)}>
             <option value="Breakfast">Breakfast</option>
@@ -18,6 +18,7 @@ const Header = ({setQuery, getData}) => {
             <option value="Lunch">Lunch</option>
             <option value="Snack">Snack</option>
             <option value="Teatime">Teatime</option>
+
             
           </Select>
         </FormContainer>

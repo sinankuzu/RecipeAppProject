@@ -1,27 +1,38 @@
-import React from "react";
-import { Button, RecipeCards, RecipeHeader, RecipeImage } from "./HomeStyles";
+import React, {useState} from "react";
+import { Button, MainContainer, RecipeCards, RecipeHeader, RecipeImage } from "./HomeStyles";
 import { useNavigate } from "react-router-dom";
-// import {useNavigate} from "react-router-dom"
-const RecipeCard = ({ recipe1, yemekler }) => {
-  let navigate = useNavigate();
 
+// import {useNavigate} from "react-router-dom"
+const RecipeCard = ({ recipe1, yemekler,inputValue }) => {
+  let navigate = useNavigate();
+  
   // const detayaGit = () => {
   //   navigate("/details", { state: { recipe1 } });
   // };
 
   return (
-    <div>
-      {yemekler.map((element) => {
-        const { label, image } = element.recipe;
-        return (
-          <RecipeCards key={element.title}>
-            <RecipeHeader>{label}</RecipeHeader>
-            <RecipeImage src={image} />
-            <Button onClick={() => navigate(`/details/${label}`)}>Details</Button>
-          </RecipeCards>
-        );
-      })}
-    </div>
+    <MainContainer>
+      {yemekler
+        .filter((filtered) =>
+          filtered.recipe.label.toLowerCase().includes(inputValue)
+        )
+        .map((element) => {
+          
+             const { label, image } = element.recipe; 
+          
+          return (
+            <RecipeCards key={label}>
+              <RecipeHeader>{label}</RecipeHeader>
+              <RecipeImage src={image} />
+              <Button
+                onClick={() => navigate(`/details/${element.recipe.label}`)}
+              >
+                Details
+              </Button>
+            </RecipeCards>
+          );
+        })}
+    </MainContainer>
   );
 };
 
