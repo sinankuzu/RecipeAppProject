@@ -14,7 +14,7 @@ const RecipeCard = ({ recipe1, yemekler }) => {
       {yemekler.map((element) => {
         const { label, image } = element.recipe;
         return (
-          <RecipeCards key={element.id}>
+          <RecipeCards key={element.title}>
             <RecipeHeader>{label}</RecipeHeader>
             <RecipeImage src={image} />
             <Button onClick={() => navigate(`/details/${label}`)}>Details</Button>

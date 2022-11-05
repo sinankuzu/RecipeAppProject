@@ -4,7 +4,9 @@ import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
 import axios from "axios";
 import RecipeCard from "./RecipeCard";
-
+import home from "../../assets/home.svg"
+import {Route, Routes} from "react-router-dom";
+import Login from "../login/Login"
 
 const Home = () => {
   const [yemekler, setYemekler] = useState([]);
@@ -26,10 +28,11 @@ const Home = () => {
 
   return (
     <div>
-      
       <Header query={query} setQuery={setQuery} getData={getData} />
-      <RecipeCard yemekler={yemekler} />
-      
+
+      {(yemekler.length > 1 && <RecipeCard yemekler={yemekler} />) || (
+        <img src={home} alt="" />
+      )}
     </div>
   );
 };

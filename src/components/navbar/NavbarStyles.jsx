@@ -16,7 +16,7 @@ export const Nav = styled.div`
   /* background: #e1f1dd; */
 `;
 
-export const MenuLink = styled.div`
+export const MenuLink = styled(Link)`
   /* navbardaki 3 kelime ... tek tek about vs yazanların özellikleri */
   background-color: green;
 
@@ -88,7 +88,7 @@ export const Menu = styled.div`
     }
   }
 `;
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   background-color: gray;
 
   padding: 1rem 0;

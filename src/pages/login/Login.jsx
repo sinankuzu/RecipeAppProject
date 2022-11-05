@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {useNavigate} from "react-router-dom";
 import {
   FormContainer,
   Header,
@@ -12,6 +13,7 @@ import mealSvg from "../../assets/meal.svg";
 const Login = () => {
 const[nickName, setNickname]=useState();
 
+const navigate = useNavigate();
 
 
 
@@ -23,13 +25,13 @@ const[nickName, setNickname]=useState();
         <Header>{"<Clarusway/>"}Recipe</Header>
         {/* login sayfasındaki yuvarlak olayın içindeki yazı (Header) */}
 
-        <StyledForm  >
+        <StyledForm  onSubmit={()=>navigate("/home")}>
           {/* 3 kutunun olduğu form  */}
           <StyledInput type="text" placeholder="username" required onChange={(e)=>setNickname(e.target.value)}/>
 
 
           <StyledInput type="password" placeholder="password" required />
-          <StyledButton type="submit">Login</StyledButton>
+          <StyledButton type="submit" >Login</StyledButton>
         </StyledForm>
       </FormContainer>
     </LoginContainer>

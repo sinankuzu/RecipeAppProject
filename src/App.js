@@ -6,7 +6,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Details from "./pages/details/Details";
-import { HomeImg } from "./pages/home/HomeStyles";
+
 
 
 
@@ -15,18 +15,20 @@ import { HomeImg } from "./pages/home/HomeStyles";
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <Routes>
-      <Route exact path="/" element={<Home/>}/>
-      <Route path="/details/:label" element=<Details/>/>
+        <Route exact path="/home" element={<Home />} />
+        <Route path="/details/:label" element={<Details />} />
+        <Route path="/login"  element={<Login />}/>
+        <Route path="about" element={ <About />}/>
       </Routes>
       
-       {/* <Login /> */}
 
       
-          {/* <About /> */}
 
-      <Footer />
+     
+
+      <Footer/>
     </BrowserRouter>
   );
 };

@@ -8,11 +8,14 @@ const Navbar = () => {
   const clarus = `<CLARUSWAY>`
   return (
     <Nav>
-      <Logo onClick={()=>navigate("/")}>{clarus}</Logo>
+      <Logo to="home">Clarusway</Logo>
       <Menu>
-        <MenuLink onClick={() => navigate("/about")}>About</MenuLink>
-        <MenuLink onClick={() => navigate("/github")}>Github</MenuLink>
-        <MenuLink>Logout</MenuLink>
+        <MenuLink to="/about">About</MenuLink>
+        <a href="https://github.com/" target="_blank">
+          Github
+        </a>
+
+        <MenuLink to="/login">Logout</MenuLink>
       </Menu>
     </Nav>
   );
