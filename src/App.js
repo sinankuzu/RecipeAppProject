@@ -3,9 +3,10 @@ import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import About from "./pages/about/About";
 import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
+import Login, { backendeYolla } from "./pages/login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Details from "./pages/details/Details";
+import { useState } from "react";
 
 
 
@@ -13,18 +14,19 @@ import Details from "./pages/details/Details";
 
 
 const App = () => {
- 
+ const [logged, setLogged] = useState(false)
+ console.log(logged)
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        <Navbar setLogged={setLogged, logged} />
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/details/" element={<Details />} />
-          <Route exact path="/" element={<Login />} />
+          <Route exact path="/" element={<Login setLogged={setLogged} />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <Footer />
+        {logged ? <Footer /> : ""}
       </BrowserRouter>
     </div>
   );

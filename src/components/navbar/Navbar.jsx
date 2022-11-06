@@ -1,23 +1,28 @@
-import React from "react";
+import React,{useState} from "react";
 import { Logo, Menu, MenuLink, Nav } from "./NavbarStyles";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
-  const navigate = useNavigate();
+const Navbar = ({setLogged,logged}) => {
+  // const navigate = useNavigate();
   const clarus = `<CLARUSWAY>`;
+  const cevir =()=>{
+    setLogged(false)
+  }
   return (
     <Nav>
-      <Logo to="home">
+      <Logo onClick={(e)=>!logged ? e.preventDefault():console.log("clicked")} to="home">
         {clarus}
         <span>RECIPE</span>
       </Logo>
       <Menu>
-        <MenuLink to="/about">About</MenuLink>
+        <MenuLink onClick={(e)=>!logged ? e.preventDefault():console.log("clicked")} to="/about">About</MenuLink>
         <a href="https://github.com/" target="_blank">
           Github
         </a>
 
-        <MenuLink to="/">Logout</MenuLink>
+        <MenuLink onClick={cevir} to="/">
+          Logout
+        </MenuLink>
       </Menu>
     </Nav>
   );
