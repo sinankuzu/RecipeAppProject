@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Navbar setLogged={setLogged, logged} />
+        <Navbar setLogged={setLogged} logged={logged} />
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/details/" element={<Details />} />
