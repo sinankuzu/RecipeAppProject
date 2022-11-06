@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { Logo, Menu, MenuLink, Nav } from "./NavbarStyles";
 // import { useNavigate } from "react-router-dom";
 
