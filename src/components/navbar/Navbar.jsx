@@ -4,7 +4,14 @@ import { Hamburger, Logo, Menu, MenuLink, Nav } from "./NavbarStyles";
 
 const Navbar = ({ setLogged, logged }) => {
   // const navigate = useNavigate();
-  const [simge, setSimge] = useState('')
+  const [simge, setSimge] = useState({overflow:"hidden"});
+  const simgeDegis = ()=>{
+    setSimge(!simge)
+  console.log("basildi")
+  }
+
+ 
+  
   const clarus = `<CLARUSWAY>`;
   console.log(logged, "nav syafasi");
   const cevir = () => {
@@ -21,7 +28,7 @@ const Navbar = ({ setLogged, logged }) => {
         {clarus}
         <span>RECIPE</span>
       </Logo>
-      <Menu>
+      <Menu style={{ overflow: simge ? "visible":"hidden"}}>
         <MenuLink
           onClick={(e) => {
             !logged ? e.preventDefault() : console.log("clicked");
@@ -37,7 +44,7 @@ const Navbar = ({ setLogged, logged }) => {
         <MenuLink onClick={cevir} to="/">
           Logout
         </MenuLink>
-        <Hamburger>menuyu ac</Hamburger>
+        <Hamburger onClick={simgeDegis}>menuyu ac</Hamburger>
       </Menu>
     </Nav>
   );

@@ -46,19 +46,20 @@ export const Menu = styled.div`
   /* navbardaki 3 kelime about ...hepsini içine alan sarmalın (kutunun ) özellikleri*/
   background: #e1f1dd;
   display: flex;
+  
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
   /* içinde bulunduğu div in  stillerine göre ayarla kendini, bunu yazmazsak food app in altında kalacak */
   /* 3 kelime  açılınca üstteki özelliklerde olsun*/
   @media (max-width: 850px) {
-     overflow: hidden; 
     /* display: none; tamamen gizler, hamburger tıklanınca bile açılmaz */
     /* uzun yazı olurda taşarsa gizle (hamburgere dönüşünce)*/
     flex-direction: column;
     width: 100%;
     position: relative;
-    top:115px;
+    top: 115px;
     /* props olarak, osman=true geldi mesela */
     max-height: ${({ osman }) => (osman ? "300px" : "0")};
     /* max-height:300px; */
@@ -81,7 +82,7 @@ export const Menu = styled.div`
       color: #00adb5;
       font-weight: bold;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
       /* hamburger meydana çıktığında 
     /* ekran küçülünce alttaki stiller olsun */
       border: 1px solid #00adb5;
