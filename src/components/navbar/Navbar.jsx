@@ -8,7 +8,7 @@ const Navbar = () => {
   const clarus = `<CLARUSWAY>`
   return (
     <Nav>
-      <Logo to="home">Clarusway</Logo>
+      <Logo to="home">{clarus}<span>RECIPE</span></Logo>
       <Menu>
         <MenuLink to="/about">About</MenuLink>
         <a href="https://github.com/" target="_blank">

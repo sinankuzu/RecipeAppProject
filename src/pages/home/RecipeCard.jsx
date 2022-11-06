@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 import { Button, MainContainer, RecipeCards, RecipeHeader, RecipeImage } from "./HomeStyles";
 import { useNavigate } from "react-router-dom";
-import Details from "../details/Details";
+
 import "./RecipeSSS.css"
 
 
-const RecipeCard = ({ yemekler,inputValue }) => {
+const RecipeCard = ({ yemekler,inputValue,recipe1 }) => {
   let navigate = useNavigate();
+  
   
   // const detayaGit = () => {
   //   navigate("/details", { state: { recipe1 } });
@@ -14,7 +15,7 @@ const RecipeCard = ({ yemekler,inputValue }) => {
 
   return (
     <MainContainer>
-      {yemekler
+      {recipe1
         .filter((filtered) =>
           filtered.recipe.label.toLowerCase().includes(inputValue)
         )
@@ -26,8 +27,8 @@ const RecipeCard = ({ yemekler,inputValue }) => {
             <RecipeCards key={index}>
               <RecipeHeader>{label}</RecipeHeader>
               <RecipeImage src={image} />
-              <Button onClick={() => navigate("/details")}>Details</Button>
-              <div className="gizlen">{<Details yemekler={yemekler} />}</div>
+              <Button onClick={() => navigate("/details", {state:{element}})}>Details</Button>
+              
             </RecipeCards>
           );
         })}
