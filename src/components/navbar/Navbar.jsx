@@ -28,7 +28,7 @@ const Navbar = ({ setLogged, logged }) => {
         {clarus}
         <span>RECIPE</span>
       </Logo>
-      <Menu style={{ overflow: simge ? "visible":"hidden"}}>
+      <Menu style={{ overflow: simge ? "hidden" : "visible" }}>
         <MenuLink
           onClick={(e) => {
             !logged ? e.preventDefault() : console.log("clicked");
