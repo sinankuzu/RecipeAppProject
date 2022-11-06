@@ -1,13 +1,19 @@
-import React from 'react'
-import { DetailContainer, DetailPart, HeaderContainer, ImgContainer, IngredContainer, OtherPart } from './DetailsStyles'
-import { useLocation } from 'react-router-dom'
-import diet from "../../assets/diet.svg"
+import React from "react";
+import {
+  DetailContainer,
+  DetailPart,
+  HeaderContainer,
+  ImgContainer,
+  IngredContainer,
+  OtherPart,
+} from "./DetailsStyles";
+import { useLocation } from "react-router-dom";
+import diet from "../../assets/diet.svg";
 const Details = () => {
-  
   const location = useLocation();
-console.log(location,"naber")
-  const recipeAr = location.state.element.recipe
-  console.log(recipeAr, "iyidir");
+
+  const recipeAr = location.state.element.recipe;
+
   return (
     <DetailContainer>
       <HeaderContainer>
@@ -67,12 +73,9 @@ console.log(location,"naber")
 
         <IngredContainer>
           <ol>
-          
-            {recipeAr.ingredients.map((element,index)=>{
-              return (
-              <li key={index}>{element.text}</li>);
+            {recipeAr.ingredients.map((element, index) => {
+              return <li key={index}>{element.text}</li>;
             })}
-            
           </ol>
         </IngredContainer>
       </DetailPart>
@@ -80,4 +83,4 @@ console.log(location,"naber")
   );
 };
 
-export default Details
+export default Details;
