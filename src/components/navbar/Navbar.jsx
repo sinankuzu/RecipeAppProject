@@ -1,9 +1,10 @@
-import React from "react";
-import { Logo, Menu, MenuLink, Nav } from "./NavbarStyles";
+import React, { useState } from "react";
+import { Hamburger, Logo, Menu, MenuLink, Nav } from "./NavbarStyles";
 // import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ setLogged, logged }) => {
   // const navigate = useNavigate();
+  const [simge, setSimge] = useState('')
   const clarus = `<CLARUSWAY>`;
   console.log(logged, "nav syafasi");
   const cevir = () => {
@@ -36,6 +37,7 @@ const Navbar = ({ setLogged, logged }) => {
         <MenuLink onClick={cevir} to="/">
           Logout
         </MenuLink>
+        <Hamburger>menuyu ac</Hamburger>
       </Menu>
     </Nav>
   );

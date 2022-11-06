@@ -34,7 +34,7 @@ export const MenuLink = styled(Link)`
     color: #00adb5;
     font-weight: bold;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 850px) {
     /* hamburger meydana çıktığında 
     /* ekran küçülünce alttaki stiller olsun */
     border: 1px solid #00adb5;
@@ -51,19 +51,21 @@ export const Menu = styled.div`
   position: relative;
   /* içinde bulunduğu div in  stillerine göre ayarla kendini, bunu yazmazsak food app in altında kalacak */
   /* 3 kelime  açılınca üstteki özelliklerde olsun*/
-  @media (max-width: 768px) {
-    overflow: hidden;
+  @media (max-width: 850px) {
+     overflow: hidden; 
     /* display: none; tamamen gizler, hamburger tıklanınca bile açılmaz */
     /* uzun yazı olurda taşarsa gizle (hamburgere dönüşünce)*/
     flex-direction: column;
     width: 100%;
+    position: relative;
+    top:115px;
     /* props olarak, osman=true geldi mesela */
     max-height: ${({ osman }) => (osman ? "300px" : "0")};
     /* max-height:300px; */
     /* 3 çizgiye ilk tıklandığında 300 px açılsın, sonraki tıklamada kapansın */
     /* max-height:300px yazarsak hep açık olur */
   }
-  
+
   a {
     padding: 1rem 2rem;
     cursor: pointer;
@@ -108,12 +110,21 @@ export const Logo = styled(Link)`
 `;
 
 export const Hamburger = styled.div`
-  display: none;
+  display:none;
+  position:fixed;
+  top:0;
+  right:30px;
+  border:1px solid red;
+  background:purple;
+  border-radius:10px;
+  padding:10px;
+
+
   /* Bir öğeyi gizleme özelliği  Öğe gizlenecek ve sayfa, öğe orada değilmiş gibi alttaki stiller yok gibi görüntülenecektir: */
   
   cursor: pointer;
   
-@media (max-width: 768px) {
+@media (max-width: 850px) {
 display: flex;
 
 }
