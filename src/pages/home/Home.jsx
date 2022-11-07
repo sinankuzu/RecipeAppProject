@@ -23,6 +23,7 @@ const Home = () => {
     axios.get(url).then((res) => setYemekler(res.data.hits));
     
   };
+  
 
   return (
     <div>
