@@ -6,7 +6,7 @@ import Home from "./pages/home/Home";
 import Login, { backendeYolla } from "./pages/login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Details from "./pages/details/Details";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
@@ -14,19 +14,31 @@ import { useState } from "react";
 
 
 const App = () => {
+  const [simge, setSimge] = useState(true);
  const [logged, setLogged] = useState(false)
  console.log(logged)
+useEffect(() => {
+  const items = localStorage.getItem("kullanici")
+   if ( items !== null) {
+     setLogged(true);
+     console.log("calismadi");
+   }
+}, [])
+
+
   return (
     <div>
       <BrowserRouter>
-        <Navbar setLogged={setLogged} logged={logged} />
-        <Routes>
+        <Navbar setLogged={setLogged} logged={logged} setSimge={setSimge} simge={simge} />
+        <div onClick={()=>{setSimge(true)}}>
+        <Routes >
           <Route path="/home" element={<Home />} />
           <Route path="/details/" element={<Details />} />
           <Route exact path="/" element={<Login setLogged={setLogged} />} />
           <Route path="/about" element={<About />} />
         </Routes>
         {logged ? <Footer /> : ""}
+        </div>
       </BrowserRouter>
     </div>
   );

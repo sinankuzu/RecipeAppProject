@@ -2,26 +2,29 @@ import React, { useState } from "react";
 import { Hamburger, Logo, Menu, MenuLink, Nav } from "./NavbarStyles";
 // import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ setLogged, logged }) => {
+const Navbar = ({ setLogged, logged, setSimge,simge }) => {
   // const navigate = useNavigate();
-  const [simge, setSimge] = useState({overflow:"hidden"});
-  const simgeDegis = ()=>{
-    setSimge(!simge)
-  console.log("basildi")
-  }
 
- 
-  
+  const simgeDegis = () => {
+    setSimge(!simge);
+    console.log("basildi");
+  };
+
   const clarus = `<CLARUSWAY>`;
-  console.log(logged, "nav syafasi");
+  
+  console.log(logged, "logged edildi mi")
+ 
   const cevir = () => {
-    setLogged(false);
+    localStorage.removeItem("kullanici")
+    setLogged(false)
   };
   return (
     <Nav>
       <Logo
         onClick={(e) => {
-          !logged ? e.preventDefault() : console.log("clicked");
+          logged === false ? e.preventDefault() : console.log("clicked");
+          setSimge(true)
+
         }}
         to={"/home"}
       >
@@ -31,7 +34,8 @@ const Navbar = ({ setLogged, logged }) => {
       <Menu style={{ overflow: simge ? "hidden" : "visible" }}>
         <MenuLink
           onClick={(e) => {
-            !logged ? e.preventDefault() : console.log("clicked");
+            logged === false ? e.preventDefault() : console.log("clicked");
+            setSimge(true);
           }}
           to={"/about"}
         >
@@ -41,7 +45,7 @@ const Navbar = ({ setLogged, logged }) => {
           Github
         </a>
 
-        <MenuLink onClick={cevir} to="/">
+        <MenuLink onClick={(e)=>{cevir(); setSimge(true)}} to="/">
           Logout
         </MenuLink>
         <Hamburger onClick={simgeDegis}>menuyu ac</Hamburger>

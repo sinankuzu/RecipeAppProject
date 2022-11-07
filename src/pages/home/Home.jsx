@@ -14,13 +14,14 @@ const Home = () => {
   const appId = "701ae603";
   const appKey = "049067520a425ffc971152f1b6cbbde4";
   const ogunler = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
-  const [ogun, setOgun] = useState(ogunler[0].toLowerCase());
+  const [ogun, setOgun] = useState("Breakfast");
   const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}&mealType=${ogun}`;
   const [inputValue, setInputValue] = useState("");
   const [recipe1, setRecipe1] = useState([]);
   const getData = (e) => {
     e.preventDefault();
     axios.get(url).then((res) => setYemekler(res.data.hits));
+    console.log(url)
   };
 
   return (
@@ -30,6 +31,7 @@ const Home = () => {
         setQuery={setQuery}
         getData={getData}
         setInputValue={setInputValue}
+        setOgun={setOgun}
       />
 
       {(yemekler.length >= 1 && (

@@ -10,16 +10,18 @@ import {
 } from "./LoginStyles";
 import mealSvg from "../../assets/meal.svg";
 import { useNavigate } from "react-router-dom";
-const Login = ({setLogged}) => {
+const Login = ({ setLogged }) => {
   const [nickName, setNickname] = useState();
   const navigate = useNavigate();
 
   const backendeYolla = (e) => {
     e.preventDefault();
-    // localStorage.setItem("kullanici", JSON.stringify(nickName));
+    localStorage.setItem("kullanici", JSON.stringify(nickName));
     navigate("/home");
-    setLogged(true)
+    setLogged(true);
+      
   };
+
 
   return (
     <LoginContainer>
