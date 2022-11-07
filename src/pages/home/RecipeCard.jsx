@@ -22,7 +22,7 @@ const RecipeCard = ({ yemekler, inputValue, recipe1 }) => {
               <RecipeHeader>{label}</RecipeHeader>
               <RecipeImage src={image} />
               <Button
-                onClick={() => navigate("/details", { state: { element } })}
+                onClick={(e) =>  navigate("/details", { state: { element } })}
               >
                 Details
               </Button>

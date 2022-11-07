@@ -1,14 +1,25 @@
-import React from 'react'
-import { FormContainer, HeaderContainer, MainHeader,FoodInput, Button, Select } from './HeaderStyles'
+import React from "react";
+import { useState } from "react";
+import {
+  FormContainer,
+  HeaderContainer,
+  MainHeader,
+  FoodInput,
+  Button,
+  Select,
+} from "./HeaderStyles";
 
 const Header = ({ setQuery, getData, setInputValue, setOgun }) => {
+  const [veri, setVeri] = useState(false);
+  if(veri === true){
+    getData()}
   return (
     <div>
       <HeaderContainer>
         <MainHeader> FOOD APP</MainHeader>
         <FormContainer>
           <FoodInput type="text" onChange={(e) => setQuery(e.target.value)} />
-          <Button onClick={getData}>Search</Button>
+          <Button onClick={()=>{getData(); setVeri(true)}}>Search</Button>
           <Select onChange={(e) => setOgun(e.target.value)}>
             <option value="Breakfast">Breakfast</option>
             <option value="Dinner">Dinner</option>
@@ -22,6 +33,4 @@ const Header = ({ setQuery, getData, setInputValue, setOgun }) => {
   );
 };
 
-export default Header
-
-
+export default Header;
