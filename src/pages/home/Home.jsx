@@ -21,7 +21,7 @@ const Home = () => {
   const getData = (e) => {
     e.preventDefault();
     axios.get(url).then((res) => setYemekler(res.data.hits));
-    console.log(url)
+    
   };
 
   return (

@@ -7,12 +7,12 @@ const Navbar = ({ setLogged, logged, setSimge,simge }) => {
 
   const simgeDegis = () => {
     setSimge(!simge);
-    console.log("basildi");
+    
   };
 
   const clarus = `<CLARUSWAY>`;
   
-  console.log(logged, "logged edildi mi")
+
  
   const cevir = () => {
     localStorage.removeItem("kullanici")

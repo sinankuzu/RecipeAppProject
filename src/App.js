@@ -16,12 +16,12 @@ import { useState, useEffect } from "react";
 const App = () => {
   const [simge, setSimge] = useState(true);
  const [logged, setLogged] = useState(false)
- console.log(logged)
+ 
 useEffect(() => {
   const items = localStorage.getItem("kullanici")
    if ( items !== null) {
      setLogged(true);
-     console.log("calismadi");
+     
    }
 }, [])
 
