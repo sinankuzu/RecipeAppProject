@@ -10,6 +10,7 @@ export const DetailContainer = styled.div`
   min-height: calc(100vh - 75px);
   /* height: fit-content; */
   padding: 5px;
+  
 `;
 
 export const DetailPart = styled.div`

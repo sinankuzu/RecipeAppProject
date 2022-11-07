@@ -7,10 +7,12 @@ import {
   IngredContainer,
   OtherPart,
 } from "./DetailsStyles";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import diet from "../../assets/diet.svg";
+import {Button} from "../home/HomeStyles"
 const Details = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const recipeAr = location.state.element.recipe;
 
@@ -79,6 +81,7 @@ const Details = () => {
           </ol>
         </IngredContainer>
       </DetailPart>
+      <Button onClick={(e)=>navigate(-1)} style={{background:"red", height:"100px", color:"white", fontSize:"30px"}}>Geri Git</Button>
     </DetailContainer>
   );
 };
